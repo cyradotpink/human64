@@ -1,6 +1,6 @@
 {
   "name": "@cyra/human64",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Encoding scheme and javascript implementation for representing arbitrary strings using the base64url charset while preserving as much of the input as possible.",
   "main": "human64.js",
   "type": "commonjs",
