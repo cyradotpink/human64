@@ -1,4 +1,4 @@
-const human64 = require('./human64')
+const human64 = require('./human38')
 
 const testInputs = [
   '', // the empty string should not be touched
@@ -14,7 +14,8 @@ const testInputs = [
   's___df-J', // a safe string with placeholders and an unsafe part that indicates placeholders should be processed
   'h__world-6u5', // should not be touched because "6u5" decodes to two safe characters ("aa")
   'h_world-3A8qvq', // should not be touched because "3A8qvq" decodes to too many characters ("ää")
-  'h__world-3A8qvq' // should be processed because "3A8qvq" decodes to the correct amount of characters ("ää")
+  'h__world-3A8qvq', // should be processed because "3A8qvq" decodes to the correct amount of characters ("ää")
+  'tag/name'
 ]
 
 const main = () => {
@@ -24,6 +25,7 @@ const main = () => {
     const encoded = human64.encode(input)
     const decoded = human64.decode(encoded)
     const isPass = encoded.match(/^[a-zA-Z0-9-_]*$/u) && input === decoded
+    console.log([input, encoded])
     if (isPass) {
       passes++
     } else {
